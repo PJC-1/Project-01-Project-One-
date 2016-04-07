@@ -29,8 +29,53 @@
    <!--END FORM-->
 
    <!--BEGIN SECTION-1-->
+   <section class="container">
+     <div class="row">
+       <div class="col-md-10 col-md-offset-1">
+         <h2>List Of Items</h2>
+       </div>
+     </div>
       <!--BEGIN SCRIPT/HANDLEBARS-->
+      <div id='items'>
+        <script id='item-template' type='text/x-handlebars-template'>
+          <div class="row item">
+
+            <div class="col-md-10 col-md-offset-1">
+              <div class="panel panel-defualt">
+                <div class="panel-body">
+                <!--begin internal row-->
+                  <div class="col-md-10 col-md-offset-1">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <h4 class='inline-header'>Item Description:</h4>
+                        <span class='item-description'>{{description}}</span>
+                      </li>
+
+                      <li class="list-group-item">
+                        <h4 class='inline-header'>Item Condition:</h4>
+                        <span class='item-condition'>{{condition}}</span>
+                      </li>
+
+                      <li class="list-group-item">
+                        <h4 class='inline-header'>Item's Importance:</h4>
+                        <span class='item-importance'>{{importance_level}}</span>
+                      </li>
+
+                      <li class="list-group-item">
+                        <h4 class='inline-header'>Item category:</h4>
+                        <span class='item-category'>{{category}}</span>
+                      </li>
+                    </ul>
+                  </div>
+                <!--end internal row-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </script>
+      </div>
       <!--END SCRIPT/HANDLEBARS-->
+   </section>
    <!--END SECTION-1-->
 
 

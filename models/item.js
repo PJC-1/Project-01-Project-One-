@@ -5,7 +5,7 @@ var Category = require("./category.js");
 var ItemSchema = new Schema({
   description: String,
   condition: String,
-  importance_leve: Number,
+  importance_level: Number,
   category: {
     type: Schema.Types.ObjectId,
     ref: 'Category'
