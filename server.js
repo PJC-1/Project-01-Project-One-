@@ -2,8 +2,11 @@ var express = require('express');
 var app = express();
 app.use(express.static('public'));
 
+var controllers = require("./controllers");
+
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
+
 
 //Routes
 
@@ -13,7 +16,8 @@ app.get('/', function homepage (req, res) {
 });
 
 //JSON API Endpoints
-
+app.get('/api', controllers.api.index);
+app.get('/api/items', controllers.items.index);
 //server
 
 app.listen(process.env.PORT || 3000, function () {
