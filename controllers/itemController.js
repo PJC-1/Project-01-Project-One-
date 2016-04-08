@@ -5,8 +5,14 @@ var db = require('../models');
 
 //GET /api/items
 function index(req, res) {
-  db.Item.find({}, function(err, data){
-    res.json(data);
+  db.Item.find({})
+    .populate('category')
+    .exec(function(err, items){
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      res.json(items);
   });
 }
 
