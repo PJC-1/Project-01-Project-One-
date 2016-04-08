@@ -26,6 +26,64 @@
    <!---->
 
    <!--BEGIN FORM-->
+   <section id='item-form' class="container">
+     <div class="row">
+     <div class="col-md-10 col-md-offset-1">
+
+       <form class="form-horizontal">
+         <fieldset>
+
+           <!-- Form Name -->
+           <legend>Add New Item</legend>
+
+           <!-- Text input for DESCRIPTION-->
+           <div class="form-group">
+             <label class="col-md-4 control-label" for="description">Description</label>
+             <div class="col-md-4">
+             <input id="descriptionHash" name="description" type="text" placeholder="i.e. My Lucky Red Hat" class="form-control input-md" required="">
+
+             </div>
+           </div>
+
+           <!-- Text input for CONDITION-->
+           <div class="form-group">
+             <label class="col-md-4 control-label" for="condition">Condition</label>
+             <div class="col-md-4">
+             <input id="conditionHash" name="condition" type="text" placeholder="i.e. used" class="form-control input-md">
+
+             </div>
+           </div>
+
+           <!-- Text input for IMPORTANCE_LEVEL-->
+           <div class="form-group">
+             <label class="col-md-4 control-label" for="importance_level">Importance Level</label>
+             <div class="col-md-4">
+             <input id="importanceLevelHash" name="importance_level" type="text" placeholder="enter a number from 1 - 10" class="form-control input-md">
+
+             </div>
+           </div>
+
+           <!-- Textarea -->
+           <div class="form-group">
+             <label class="col-md-4 control-label" for="category">Category</label>
+             <div class="col-md-4">
+               <textarea class="form-control" id="categoryHash" name="category">enter a category</textarea>
+             </div>
+           </div>
+
+
+           <!-- Button -->
+           <div class="form-group">
+             <label class="col-md-4 control-label" for="singlebutton">Save Item</label>
+             <div class="col-md-4">
+               <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+             </div>
+           </div>
+         </fieldset>
+       </form>
+     </div>
+     </div>
+   </section>
    <!--END FORM-->
 
    <!--BEGIN SECTION-1-->

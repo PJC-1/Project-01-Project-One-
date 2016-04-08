@@ -17,6 +17,13 @@ $(document).ready(function() {
     });
   });
 
+  $('#item-form form').on('submit', function(e) {
+    e.preventDefault();
+    var formData = $(this).serialize();
+    console.log('formData', formData);
+    $(this).trigger("reset");
+  });
+
 });
 //End of Doc-Ready
 
