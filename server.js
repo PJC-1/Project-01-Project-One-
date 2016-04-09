@@ -18,6 +18,7 @@ app.get('/', function homepage (req, res) {
 //JSON API Endpoints
 app.get('/api', controllers.api.index);
 app.get('/api/items', controllers.items.index);
+app.post('/api/items', controllers.items.create);
 //server
 
 app.listen(process.env.PORT || 3000, function () {

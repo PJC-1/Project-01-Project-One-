@@ -17,10 +17,14 @@ $(document).ready(function() {
     });
   });
 
+  //SUBMIT NEW ITEM
   $('#item-form form').on('submit', function(e) {
     e.preventDefault();
     var formData = $(this).serialize();
     console.log('formData', formData);
+    $.post('/api/items', formData, function(item) {
+      console.log('item after POST', item);//YOU SHOULD TRY TO ADD A RENDER FUNCTION HERE
+    });
     $(this).trigger("reset");
   });
 
