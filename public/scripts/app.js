@@ -24,6 +24,7 @@ $(document).ready(function() {
     console.log('formData', formData);
     $.post('/api/items', formData, function(item) {
       console.log('item after POST', item);//YOU SHOULD TRY TO ADD A RENDER FUNCTION HERE
+      renderItem(item);
     });
     $(this).trigger("reset");
   });
