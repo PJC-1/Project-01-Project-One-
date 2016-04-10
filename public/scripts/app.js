@@ -54,14 +54,16 @@ function saveModalSuccess(e) {
   var $importance_level = $modal.find('#importance_level');
   var $category = $modal.find('#category');
 
+  var dataCategory = {category: $category.val()};
   var dataToPost = {
     description: $description.val(),
     condition: $condition.val(),
     importance_level: $importance_level.val(),
-    category: $category.val()
   };
+
+  dataToPost.category = dataCategory.category;
+  console.log("This is category: ", dataToPost);
   var itemId = $modal.data('itemId');
-  console.log('retrieved description: ', description, ' in ',condition,', with a rating of: ', importance_level, ' from category: ', category);
   $.post('/api/items', dataToPost, function(data) {
     console.log('received data from post: ', data);
 
