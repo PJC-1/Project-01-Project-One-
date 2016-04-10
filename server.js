@@ -19,6 +19,7 @@ app.get('/', function homepage (req, res) {
 app.get('/api', controllers.api.index);
 app.get('/api/items', controllers.items.index);
 app.post('/api/items', controllers.items.create);
+app.put('/api/items/:itemId', controllers.items.update);
 //server
 
 app.listen(process.env.PORT || 3000, function () {

@@ -17,9 +17,6 @@ function index(req, res) {
 }
 
 
-
-
-
 //POST /api/items
 // function create(req, res) {
 //   var categoryAttr = new db.Item(req.body.category);
@@ -56,23 +53,30 @@ function create(req, res) {
 }
 
 
+//UPDATE AN ITEM
+function update(req, res) {
+  console.log('logging for update');
+  db.Item.findById(req.params.itemId, function(err, foundItem) {
+    if(err) { console.log('itemsController.update error', err); }
+    foundItem.description = req.body.description;
+    foundItem.condition = req.body.condition;
+    foundItem.importance_level = req.body.importance_level;
+    console.log("this is foundItem, ", foundItem);
+    foundItem.save(function(err, saveItem) {
+      if(err) { console.log('saving updated item FAIL'); }
 
-
-//This POST-CREATE function is old-news delete it soon.
-// function create(req, res) {
-//   console.log("this logs the body, ", req.body);
-//   db.Item.create(req.body, function(err, item) {
-//     if (err) { console.log('error', err); }
-//     console.log("this is the returned item from POST, ", item);
-//     res.json(item);
-//   });
-// }
-
+      var categoryAT = req.body.category;
+      saveItem.category = categoryAT;
+      res.json(saveItem);
+    });
+  });
+}
 
 
 
 //export public methods here
 module.exports = {
   index: index,
-  create: create
+  create: create,
+  update: update
 };

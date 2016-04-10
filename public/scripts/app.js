@@ -65,19 +65,45 @@ function saveModalSuccess(e) {
   dataToPost.category = dataCategory;
   var itemId = $modal.data('itemId');
   console.log("This is category: ", dataToPost);
-  $.post('/api/items', dataToPost, function(data) {
-    console.log('received data from post: ', data);
-
-    // $description.val('');
-    // $condition.val('');
-    // $importance_level.val('');
-    // $category.val('');
-
-    $modal.modal('hide');
-    console.log('gotta wait, ', data);
-  }).error(function(err) {
-    console.log('post err, ', err);
+  var itemUrl = '/api/items/' + itemId;
+  $.ajax({
+    method: 'PUT',
+    url: itemUrl,
+    data: dataToPost,
+    success: updateSuccess,
+    error: updateError
   });
+}
+
+
+
+// });
+// $.post('/api/items', dataToPost, function(data) {
+//   console.log('received data from post: ', data);
+//
+//   $description.val('');
+//   $condition.val('');
+//   $importance_level.val('');
+//   $category.val('');
+//
+//   $modal.modal('hide');
+//   console.log('gotta wait, ', data);
+
+//UPDATE SUCCESS/ERROR
+function updateSuccess(data){
+  console.log(data);
+  console.log('received data from update:', data);
+
+  // $description.val('');
+  // $condition.val('');
+  // $importance_level.val('');
+  // $category.val('');
+  //$modal.modal('hide');
+}
+
+function updateError(){
+  console.log("error");
+
 }
 
 

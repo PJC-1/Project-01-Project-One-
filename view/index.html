@@ -146,7 +146,72 @@
    </section>
    <!--END SECTION-1-->
 
-   <!--BEGIN ITEM-MODAL-->
+
+
+
+   <!--BEGIN MODAL-FORM-->
+   <div class="modal fade" tabindex="-1" role="dialog" id="itemModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Edit Item</h4>
+          </div>
+          <div class="modal-body">
+
+          <form class="form-horizontal">
+           <fieldset>
+
+           <!-- Text input for DESCRIPTION-->
+           <div class="form-group">
+             <label class="col-md-4 control-label" for="description">Description</label>
+             <div class="col-md-4">
+             <input id="description" name="description" type="text" placeholder="i.e. My Lucky Red Hat" class="form-control input-md" required="">
+
+             </div>
+           </div>
+
+           <!-- Text input for CONDITION-->
+           <div class="form-group">
+             <label class="col-md-4 control-label" for="condition">Condition</label>
+             <div class="col-md-4">
+             <input id="condition" name="condition" type="text" placeholder="i.e. used" class="form-control input-md">
+
+             </div>
+           </div>
+
+           <!-- Text input for IMPORTANCE_LEVEL-->
+           <div class="form-group">
+             <label class="col-md-4 control-label" for="importance_level">Importance Level</label>
+             <div class="col-md-4">
+             <input id="importance_level" name="importance_level" type="text" placeholder="enter a number from 1 - 10" class="form-control input-md">
+
+             </div>
+           </div>
+
+           <!-- Textarea -->
+           <div class="form-group">
+             <label class="col-md-4 control-label" for="category">Category</label>
+             <div class="col-md-4">
+               <textarea class="form-control" id="category" name="category">enter a category</textarea>
+             </div>
+           </div>
+         </fieldset>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="saveModal">Save changes</button>
+        </div>
+       </div>
+      </div>
+     </div>
+
+
+
+
+   <!--END MODAL-FORM on hold for now-->
+   <!-- BEGIN ITEM-MODAL
    <div class="modal fade" tabindex="-1" role="dialog" id="itemModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -157,7 +222,7 @@
           <div class="modal-body">
 
             <fieldset class='form-horizontal'>
-              <!-- Text input-->
+
               <div class="form-group">
                 <label class="col-md-4 control-label" for="description">Description</label>
                 <div class="col-md-4">
@@ -165,7 +230,7 @@
                 </div>
               </div>
 
-              <!-- Text input-->
+
               <div class="form-group">
                 <label class="col-md-4 control-label" for="condition">Condition</label>
                 <div class="col-md-4">
@@ -173,7 +238,7 @@
                 </div>
               </div>
 
-              <!-- Text input-->
+
               <div class="form-group">
                 <label class="col-md-4 control-label" for="importance_level">Importance Level</label>
                 <div class="col-md-4">
@@ -181,7 +246,7 @@
                 </div>
               </div>
 
-              <!-- Text input-->
+
               <div class="form-group">
                 <label class="col-md-4 control-label" for="category">Category</label>
                 <div class="col-md-4">
@@ -195,10 +260,10 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary" id="saveModal">Save changes</button>
           </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-   <!--END-ITEM-MODAL-->
+        </div>
+      </div>
+    </div>
+   END-ITEM-MODAL -->
 
 
 
