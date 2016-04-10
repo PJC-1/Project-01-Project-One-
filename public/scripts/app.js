@@ -4,16 +4,6 @@ $(document).ready(function() {
   console.log("app.js loaded!");
 
 
-  //EVENT CLICK UPDATE-BUTTON
-  $('#items').on('click', '.update-item', function(e) {
-    console.log('update-item clicked!');
-    var currentItemId= $(this).closest('.item').data('item-id');
-    console.log('logging id: ',currentItemId);
-    $('#itemModal').data('item-id', currentItemId);
-    $('#itemModal').modal();
-  });
-  //END EVENT CLICK UPDATE-BUTTON
-
 
   //DISPLAY ITEMS
   $.get('api/items').success(function (items){
@@ -37,14 +27,28 @@ $(document).ready(function() {
   });
   //END OF SUBMIT NEW ITEM
 
+  //EVENT CLICK UPDATE-BUTTON
+  $('#items').on('click', '.update-item', function(e) {
+    console.log('update-item clicked!');
+    var currentItemId= $(this).closest('.item').data('item-id');
+    console.log('logging id: ',currentItemId);
+    $('#itemModal').data('item-id', currentItemId);
+    $('#itemModal').modal();
+  });
+  //END EVENT CLICK UPDATE-BUTTON
 
+  //EVENT SAVE-MODAL
+  $('#saveModal').on('click', saveModalSuccess);
 
 
 });
 //End of Doc-Ready
 
 
-
+function saveModalSuccess(e) {
+  e.preventDefault();
+  console.log("You have clicked the save changes button!");
+}
 
 
 function renderItem(item) {
