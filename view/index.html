@@ -96,7 +96,8 @@
       <!--BEGIN SCRIPT/HANDLEBARS-->
       <div id='items'>
         <script id='item-template' type='text/x-handlebars-template'>
-          <div class="row item">
+          <div class="row item" data-item-id="{{_id}}">
+
 
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-defualt">
@@ -126,6 +127,14 @@
                     </ul>
                   </div>
                 <!--end internal row-->
+                 <div class='panel-footer'>
+                   <div class='panel-footer'>
+                     <button class='btn btn-primary update-item'>Update Item</button>
+                   </div>
+                 </div>
+
+
+
                 </div>
               </div>
             </div>

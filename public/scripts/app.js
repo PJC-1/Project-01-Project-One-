@@ -1,21 +1,19 @@
 console.log("Sanity Check: JS is working!");
 
-
-
-
-
 $(document).ready(function() {
   console.log("app.js loaded!");
 
-  // sampleItems.forEach(function(item) {
-  //   renderItem(item);
-  // });
 
+
+
+  //DISPLAY ITEMS
   $.get('api/items').success(function (items){
     items.forEach(function(item) {
       renderItem(item);
     });
   });
+  //END DISPLAY ITEMS
+
 
   //SUBMIT NEW ITEM
   $('#item-form form').on('submit', function(e) {
@@ -28,9 +26,15 @@ $(document).ready(function() {
     });
     $(this).trigger("reset");
   });
+  //END OF SUBMIT NEW ITEM
+
+
 
 });
 //End of Doc-Ready
+
+
+
 
 
 function renderItem(item) {
