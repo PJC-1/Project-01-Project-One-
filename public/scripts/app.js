@@ -48,6 +48,33 @@ $(document).ready(function() {
 function saveModalSuccess(e) {
   e.preventDefault();
   console.log("You have clicked the save changes button!");
+  var $modal = $('#itemModal');
+  var $description = $modal.find('#description');
+  var $condition = $modal.find('#condition');
+  var $importance_level = $modal.find('#importance_level');
+  var $category = $modal.find('#category');
+
+  var dataToPost = {
+    description: $description.val(),
+    condition: $condition.val(),
+    importance_level: $importance_level.val(),
+    category: $category.val()
+  };
+  var itemId = $modal.data('itemId');
+  console.log('retrieved description: ', description, ' in ',condition,', with a rating of: ', importance_level, ' from category: ', category);
+  $.post('/api/items', dataToPost, function(data) {
+    console.log('received data from post: ', data);
+
+    $description.val('');
+    $condition.val('');
+    $importance_level.val('');
+    $category.val('');
+
+    $modal.modal('hide');
+    console.log('gotta wait, ', data);
+  }).error(function(err) {
+    console.log('post err, ', err);
+  });
 }
 
 
