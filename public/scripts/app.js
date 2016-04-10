@@ -55,7 +55,7 @@ function saveModalSuccess(e) {
   var $category = $modal.find('#category');
 
   // var dataCategory = {category: $category.val()};
-  var dataCategory = $category.val(); //SO FAR THIS DOESN'T WORK, BUT THIS NEED TO BE UPDATE ANYWAY.
+  var dataCategory = $category.val();
   var dataToPost = {
     description: $description.val(),
     condition: $condition.val(),
@@ -73,6 +73,13 @@ function saveModalSuccess(e) {
     success: updateSuccess,
     error: updateError
   });
+
+  $description.val('');
+  $condition.val('');
+  $importance_level.val('');
+  $category.val('');
+
+  $modal.modal('hide');
 }
 
 
@@ -81,13 +88,13 @@ function saveModalSuccess(e) {
 // $.post('/api/items', dataToPost, function(data) {
 //   console.log('received data from post: ', data);
 //
-//   $description.val('');
-//   $condition.val('');
-//   $importance_level.val('');
-//   $category.val('');
-//
-//   $modal.modal('hide');
-//   console.log('gotta wait, ', data);
+  // $description.val('');
+  // $condition.val('');
+  // $importance_level.val('');
+  // $category.val('');
+  //
+  // $modal.modal('hide');
+  // console.log('gotta wait, ', data);
 
 //UPDATE SUCCESS/ERROR
 function updateSuccess(data){
