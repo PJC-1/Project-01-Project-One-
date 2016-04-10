@@ -54,23 +54,24 @@ function saveModalSuccess(e) {
   var $importance_level = $modal.find('#importance_level');
   var $category = $modal.find('#category');
 
-  var dataCategory = {category: $category.val()};
+  // var dataCategory = {category: $category.val()};
+  var dataCategory = $category.val(); //SO FAR THIS DOESN'T WORK, BUT THIS NEED TO BE UPDATE ANYWAY.
   var dataToPost = {
     description: $description.val(),
     condition: $condition.val(),
     importance_level: $importance_level.val(),
   };
 
-  dataToPost.category = dataCategory.category;
-  console.log("This is category: ", dataToPost);
+  dataToPost.category = dataCategory;
   var itemId = $modal.data('itemId');
+  console.log("This is category: ", dataToPost);
   $.post('/api/items', dataToPost, function(data) {
     console.log('received data from post: ', data);
 
-    $description.val('');
-    $condition.val('');
-    $importance_level.val('');
-    $category.val('');
+    // $description.val('');
+    // $condition.val('');
+    // $importance_level.val('');
+    // $category.val('');
 
     $modal.modal('hide');
     console.log('gotta wait, ', data);
