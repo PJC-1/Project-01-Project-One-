@@ -17,6 +17,16 @@ function index(req, res) {
 }
 
 
+//Get /api/items/:itemId
+
+function show(req, res) {
+  db.Item.findById(req.params.itemId, function(err, foundItem) {
+    if(err) { console.log('items controllers show error', err); }
+    console.log('items controller show sucess', foundItem);
+  });
+}
+
+
 //POST /api/items
 // function create(req, res) {
 //   var categoryAttr = new db.Item(req.body.category);
@@ -78,5 +88,6 @@ function update(req, res) {
 module.exports = {
   index: index,
   create: create,
+  show: show,
   update: update
 };

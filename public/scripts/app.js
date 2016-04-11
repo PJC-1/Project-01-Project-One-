@@ -55,7 +55,7 @@ function saveModalSuccess(e) {
   var $category = $modal.find('#category');
 
   // var dataCategory = {category: $category.val()};
-  var dataCategory = $category.val();
+  var dataCategory = ({category: $category.val()});
   var dataToPost = {
     description: $description.val(),
     condition: $condition.val(),
@@ -78,8 +78,12 @@ function saveModalSuccess(e) {
   $condition.val('');
   $importance_level.val('');
   $category.val('');
-
   $modal.modal('hide');
+
+
+  // $.get('/api/items/'+ itemId, function(data) {
+  //   $('[data-item-id=' + itemId + ']').remove();
+  // });
 }
 
 
@@ -100,12 +104,15 @@ function saveModalSuccess(e) {
 function updateSuccess(data){
   console.log(data);
   console.log('received data from update:', data);
+  var $modal = $('#itemModal');
+  var itemId = $modal.data('itemId');
+  $.get('/api/items/'+ itemId, function(data) {
+    console.log("this is the data ", data);
+    $('[data-item-id=' + itemId + ']').remove();
+    renderItem(data);
+  });
 
-  // $description.val('');
-  // $condition.val('');
-  // $importance_level.val('');
-  // $category.val('');
-  //$modal.modal('hide');
+
 }
 
 function updateError(){
