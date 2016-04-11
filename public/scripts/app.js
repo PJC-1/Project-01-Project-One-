@@ -39,7 +39,7 @@ $(document).ready(function() {
 
   //EVENT SAVE-MODAL
   $('#saveModal').on('click', saveModalSuccess);
-  $('#items').on('click', '.delete-item', deleteItemSuccess);
+  $('#items').on('click', '.delete-item', deleteItemClick);
 
 });
 //End of Doc-Ready
@@ -107,13 +107,9 @@ function updateSuccess(data){
   // var $modal = $('#itemModal');
   // var itemId = $modal.data('itemId');
   var itemId = data._id;
-  $.get('/api/items/'+ itemId, function(item) {
-    console.log("this is the data ", item);
-    $('[data-item-id=' + itemId + ']').remove();
-    renderItem(item);
-  });
-
-
+  console.log("this is the data ", data);
+  $('div[data-item-id=' + itemId + ']').remove();
+  renderItem(data);
 }
 
 function updateError(){
@@ -121,11 +117,21 @@ function updateError(){
 
 }
 
-function deleteItemSuccess(e) {
+function deleteItemClick(e) {
   var itemId = $(this).parents('.item').data('item-id');
   console.log('delete item: ', itemId);
+  $.ajax({
+    url: '/api/items/' + itemId,
+    method: 'DELETE',
+    success: deleteSuccess
+  });
 }
 
+function deleteSuccess(data) {
+  var deletedItemId = data._id;
+  console.log('removing item from the page: ', deletedItemId);
+  $('div[data-item-id=' + deletedItemId + ']').remove();
+}
 
 function renderItem(item) {
   console.log('rendering item', item);
