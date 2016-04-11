@@ -68,7 +68,20 @@
            <div class="form-group">
              <label class="col-md-4 control-label" for="category">Category</label>
              <div class="col-md-4">
-               <textarea class="form-control" id="categoryHash" name="category">enter a category</textarea>
+               <div class="col-md-8 col-md-offset-2">
+               <div class="btn-group">
+                 <textarea class="form-control" id="categoryHash" name="category">enter a category</textarea>
+                 <button id="categoryHashBtn" name="category" type="button" class="form-control btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Choose a Category <span class="caret"></span>
+                 </button>
+                 <ul class="dropdown-menu">
+                   <li id="bedroomId">Bedroom</li>
+                   <li id="kitchenId">Kitchen</li>
+                   <li id="livingRoomId">Living Room</li>
+                   <li id="miscId">Miscellaneous</li>
+                 </ul>
+               </div>
+               </div>
              </div>
            </div>
 
@@ -94,7 +107,6 @@
        List By Category <span class="caret"></span>
      </button>
      <ul class="dropdown-menu">
-       <li><a href="#">All Items</a></li>
        <li><a href="#">Bedroom</a></li>
        <li><a href="#">Kitchen</a></li>
        <li><a href="#">Living Room</a></li>
@@ -223,63 +235,6 @@
       </div>
      </div>
 
-
-
-
-   <!--END MODAL-FORM on hold for now-->
-   <!-- BEGIN ITEM-MODAL
-   <div class="modal fade" tabindex="-1" role="dialog" id="itemModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Edit Item</h4>
-          </div>
-          <div class="modal-body">
-
-            <fieldset class='form-horizontal'>
-
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="description">Description</label>
-                <div class="col-md-4">
-                  <input id="description" name="description" type="text" placeholder="" class="form-control input-md" required="">
-                </div>
-              </div>
-
-
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="condition">Condition</label>
-                <div class="col-md-4">
-                  <input id="condition" name="condition" type="text" placeholder="" class="form-control input-md" required="">
-                </div>
-              </div>
-
-
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="importance_level">Importance Level</label>
-                <div class="col-md-4">
-                  <input id="importance_level" name="importance_level" type="text" placeholder="" class="form-control input-md" required="">
-                </div>
-              </div>
-
-
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="category">Category</label>
-                <div class="col-md-4">
-                  <input id="category" name="category" type="text" placeholder="" class="form-control input-md">
-                </div>
-              </div>
-            </fieldset>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveModal">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-   END-ITEM-MODAL -->
 
 
 

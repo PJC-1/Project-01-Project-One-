@@ -6,13 +6,26 @@ itemList.push({
              condition: 'fare',
              importance_level: 3,
              category: 'Bedroom'
-           });
+            });
 itemList.push({
             description: 'flower pot',
             condition: 'broken',
             importance_level: 1,
             category: 'Living-Room'
             });
+itemList.push({
+            description: 'Frying-Pan',
+            condition: 'Like New',
+            importance_level: 5,
+            category: 'Kitchen'
+            });
+itemList.push({
+            description: 'Golf-Clubs',
+            condition: 'Used',
+            importance_level: 1,
+            category: 'Miscellaneous'
+            });
+            
 
 var categoryList = [];
 categoryList.push({
@@ -20,6 +33,12 @@ categoryList.push({
             });
 categoryList.push({
             category: 'Living-Room'
+            });
+categoryList.push({
+            category: 'Kitchen'
+            });
+categoryList.push({
+            category: 'Miscellaneous'
             });
 
 
