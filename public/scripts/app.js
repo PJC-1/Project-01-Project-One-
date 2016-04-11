@@ -55,7 +55,7 @@ function saveModalSuccess(e) {
   var $category = $modal.find('#category');
 
   // var dataCategory = {category: $category.val()};
-  var dataCategory = ({category: $category.val()});
+  var dataCategory = $category.val();
   var dataToPost = {
     description: $description.val(),
     condition: $condition.val(),
@@ -104,8 +104,6 @@ function saveModalSuccess(e) {
 function updateSuccess(data){
   console.log(data);
   console.log('received data from update:', data);
-  // var $modal = $('#itemModal');
-  // var itemId = $modal.data('itemId');
   var itemId = data._id;
   console.log("this is the data ", data);
   $('div[data-item-id=' + itemId + ']').remove();

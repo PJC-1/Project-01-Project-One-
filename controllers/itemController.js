@@ -73,18 +73,18 @@ function create(req, res) {
 
 //UPDATE AN ITEM
 function update(req, res) {
-  console.log('logging for update');
   db.Item.findById(req.params.itemId, function(err, foundItem) {
     if(err) { console.log('itemsController.update error', err); }
+    console.log('This is the data right after the server: ', foundItem);
     foundItem.description = req.body.description;
     foundItem.condition = req.body.condition;
     foundItem.importance_level = req.body.importance_level;
-    console.log("this is foundItem, ", foundItem);
     foundItem.save(function(err, saveItem) {
       if(err) { console.log('saving updated item FAIL'); }
 
-      var categoryAT = req.body.category;
+      var categoryAT = {category: req.body.category};
       saveItem.category = categoryAT;
+      console.log("This is the updated item after cat is added, ", saveItem);
       res.json(saveItem);
     });
   });
