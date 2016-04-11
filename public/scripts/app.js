@@ -20,7 +20,7 @@ $(document).ready(function() {
     var formData = $(this).serialize();
     console.log('formData', formData);
     $.post('/api/items', formData, function(item) {
-      console.log('item after POST', item);//YOU SHOULD TRY TO ADD A RENDER FUNCTION HERE
+      console.log('item after POST', item);
       renderItem(item);
     });
     $(this).trigger("reset");
@@ -39,7 +39,7 @@ $(document).ready(function() {
 
   //EVENT SAVE-MODAL
   $('#saveModal').on('click', saveModalSuccess);
-
+  $('#items').on('click', '.delete-item', deleteItemSuccess);
 
 });
 //End of Doc-Ready
@@ -104,12 +104,13 @@ function saveModalSuccess(e) {
 function updateSuccess(data){
   console.log(data);
   console.log('received data from update:', data);
-  var $modal = $('#itemModal');
-  var itemId = $modal.data('itemId');
-  $.get('/api/items/'+ itemId, function(data) {
-    console.log("this is the data ", data);
+  // var $modal = $('#itemModal');
+  // var itemId = $modal.data('itemId');
+  var itemId = data._id;
+  $.get('/api/items/'+ itemId, function(item) {
+    console.log("this is the data ", item);
     $('[data-item-id=' + itemId + ']').remove();
-    renderItem(data);
+    renderItem(item);
   });
 
 
@@ -118,6 +119,11 @@ function updateSuccess(data){
 function updateError(){
   console.log("error");
 
+}
+
+function deleteItemSuccess(e) {
+  var itemId = $(this).parents('.item').data('item-id');
+  console.log('delete item: ', itemId);
 }
 
 

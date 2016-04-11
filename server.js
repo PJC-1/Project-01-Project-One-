@@ -21,6 +21,7 @@ app.get('/api/items', controllers.items.index);
 app.get('/api/items/:itemId', controllers.items.show);
 app.post('/api/items', controllers.items.create);
 app.put('/api/items/:itemId', controllers.items.update);
+app.delete('/api/items/:itemId', controllers.items.destroy);
 //server
 
 app.listen(process.env.PORT || 3000, function () {

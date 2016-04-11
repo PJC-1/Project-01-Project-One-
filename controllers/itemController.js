@@ -26,6 +26,14 @@ function show(req, res) {
   });
 }
 
+//Delete
+function destroy(req, res) {
+  db.Item.findOneAndRemove({ _id: req.params.itemId }, function(err, foundItem){
+    res.json(foundItem);
+    console.log('item is deleted from DB,', foundItem);
+  });
+}
+
 
 //POST /api/items
 // function create(req, res) {
@@ -89,5 +97,6 @@ module.exports = {
   index: index,
   create: create,
   show: show,
-  update: update
+  update: update,
+  destroy: destroy
 };
