@@ -41,12 +41,37 @@ $(document).ready(function() {
   $('#saveModal').on('click', saveModalSuccess);
   $('#items').on('click', '.delete-item', deleteItemClick);
 
+  // $('#saveModal').on('click', function(e) {
+  //   e.preventDefault();
+  //   var formData = $('formModal').serialize();
+  //   console.log('formData', formData);
+  //   var $modal = $('#itemModal');
+  //   var itemId = $modal.data('itemId');
+  //   var itemUrl = '/api/items/' + itemId;
+  //   $.ajax({
+  //     method: 'PUT',
+  //     url: itemUrl,
+  //     data: formData,
+  //     success: updateSuccess,
+  //     error: updateError
+  //   });
+  //
+  //   $modal.modal('hide');
+  //   $(this).trigger("reset");
+  // });
+
 });
 //End of Doc-Ready
 
 
+
+
+
+
+
 function saveModalSuccess(e) {
   e.preventDefault();
+
   console.log("You have clicked the save changes button!");
   var $modal = $('#itemModal');
   var $description = $modal.find('#description');
@@ -80,25 +105,10 @@ function saveModalSuccess(e) {
   $category.val('');
   $modal.modal('hide');
 
-
-  // $.get('/api/items/'+ itemId, function(data) {
-  //   $('[data-item-id=' + itemId + ']').remove();
-  // });
 }
 
 
 
-// });
-// $.post('/api/items', dataToPost, function(data) {
-//   console.log('received data from post: ', data);
-//
-  // $description.val('');
-  // $condition.val('');
-  // $importance_level.val('');
-  // $category.val('');
-  //
-  // $modal.modal('hide');
-  // console.log('gotta wait, ', data);
 
 //UPDATE SUCCESS/ERROR
 function updateSuccess(data){

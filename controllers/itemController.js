@@ -71,25 +71,74 @@ function create(req, res) {
 }
 
 
+
+
+
 //UPDATE AN ITEM
 function update(req, res) {
-  db.Item.findById(req.params.itemId, function(err, foundItem) {
-    if(err) { console.log('itemsController.update error', err); }
-    console.log('This is the data right after the server: ', foundItem);
-    foundItem.description = req.body.description;
-    foundItem.condition = req.body.condition;
-    foundItem.importance_level = req.body.importance_level;
-    foundItem.save(function(err, saveItem) {
-      if(err) { console.log('saving updated item FAIL'); }
+ //  db.Item.findById(req.params.itemId, function(err, foundItem) {
+ //    if(err) { console.log('itemsController.update error', err); }
+ //    foundItem.populate('category').exec(function(err, items){
+ //      if (err) {
+ //        res.status(500).send(err);
+ //        return;
+ //      }
+ //        items.description = req.body.description;
+ //        items.condition = req.body.condition;
+ //        items.importance_level = req.body.importance_level;
+ //        items.save(function(err, saveItem) {
+ //          if(err) { console.log('saving updated item FAIL'); }
+ //          res.json(items);
+ //      });
+ //    });
+ //  });
+ // }
 
-      var categoryAT = {category: req.body.category};
-      saveItem.category = categoryAT;
-      console.log("This is the updated item after cat is added, ", saveItem);
-      res.json(saveItem);
-    });
-  });
+ var data = db.Item.findById(req.params.itemId);
+ console.log("this is data once in server: ", data);
+ data.populate('categories').exec(function(err, object){
+   console.log("logging obj: ", object);
+   object.save(function(err, model) {
+     console.log("logging obj after save: ", object);
+     res.json(object);
+   });
+ });
+
+ // db.Item.findById(req.params.itemId, function(err, foundItem) {
+ //   if(err) { console.log('itemsController.update error', err); }
+ //   console.log('This is the data right after the server: ', foundItem);
+ //   foundItem.description = req.body.description;
+ //   foundItem.condition = req.body.condition;
+ //   foundItem.importance_level = req.body.importance_level;
+ //
+ // });
+ //
+ // db.Item.findById(req.params.itemId, function(err, findItem) {
+ //   var categoryAT = {category: req.body.category};
+ //   findItem.category = categoryAT;
+ //   console.log("This is the updated item after cat is added, ", findItem);
+ //   foundItem.category = findItem;
+ //   res.json(foundItem);
+ // });
+
+  // db.Item.findById(req.params.itemId, function(err, foundItem) {
+  //   if(err) { console.log('itemsController.update error', err); }
+  //   console.log('This is the data right after the server: ', foundItem);
+  //   foundItem.description = req.body.description;
+  //   foundItem.condition = req.body.condition;
+  //   foundItem.importance_level = req.body.importance_level;
+  //   foundItem.save(function(err, saveItem) {
+  //     if(err) { console.log('saving updated item FAIL'); }
+  //     db.Item.findById(req.params.itemId, function(err, findItem) {
+  //       var categoryAT = {category: req.body.category};
+  //       findItem.category = categoryAT;
+  //       console.log("This is the updated item after cat is added, ", findItem);
+  //       foundItem.category = findItem;
+  //       res.json(foundItem);
+  //     });
+  //   });
+  // });
 }
-
 
 
 //export public methods here
