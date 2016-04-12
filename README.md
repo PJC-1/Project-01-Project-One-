@@ -13,7 +13,7 @@
 
 
 ## Technologies Used
-* Bullet list
+
 * jQuery
 * bootstrap
 * mongodb
