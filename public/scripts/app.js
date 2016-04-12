@@ -1,14 +1,6 @@
-console.log("Sanity Check: JS is working!");
-
 $(document).ready(function() {
   console.log("app.js loaded!");
 
-
-  // <li id="bedroomId">Bedroom</li>
-  // <li id="kitchenId">Kitchen</li>
-  // <li id="livingRoomId">Living Room</li>
-  // <li id="miscId">Miscellaneous</li>
-  //Event Listeners for drop down window
   $('#bedroomId').on('click', function() {
     console.log("your clicking the bedroom button");
 
