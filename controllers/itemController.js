@@ -1,9 +1,5 @@
 var db = require('../models');
 
-
-
-
-//GET /api/items
 function index(req, res) {
   db.Item.find({})
     .populate('category')
@@ -16,13 +12,11 @@ function index(req, res) {
   });
 }
 
-
-//Get /api/items/:itemId
-
 function show(req, res) {
   db.Item.findById(req.params.itemId, function(err, foundItem) {
     if(err) { console.log('items controllers show error', err); }
     console.log('items controller show sucess', foundItem);
+    res.json(foundItem);
   });
 }
 
