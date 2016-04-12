@@ -4,19 +4,15 @@
    <meta charset="utf-8">
    <meta name"viewport" content="width=device-width, initial-scale=1">
 
-   <title>project uno</title>
+   <title>Categorize It</title>
 
-
-    <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
 
-    <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
-    <!-- APPLICATION SCRIPTS -->
     <script src="scripts/app.js"></script>
  </head>
 
@@ -24,69 +20,36 @@
    <div class="page-header">
      <h1>PROJECT -I- <small>Organize App API</small></h1>
    </div>
-   <!---->
-
-   <!--BEGIN FORM-->
    <section id='item-form' class="container">
      <div class="row">
      <div class="col-md-10 col-md-offset-1">
-
        <form class="form-horizontal">
          <fieldset>
-
-           <!-- Form Name -->
            <legend>Add New Item</legend>
-
-           <!-- Text input for DESCRIPTION-->
            <div class="form-group">
              <label class="col-md-4 control-label" for="description">Description</label>
              <div class="col-md-4">
              <input id="descriptionHash" name="description" type="text" placeholder="i.e. My Lucky Red Hat" class="form-control input-md" required="">
-
              </div>
            </div>
-
-           <!-- Text input for CONDITION-->
            <div class="form-group">
              <label class="col-md-4 control-label" for="condition">Condition</label>
              <div class="col-md-4">
              <input id="conditionHash" name="condition" type="text" placeholder="i.e. used" class="form-control input-md">
-
              </div>
            </div>
-
-           <!-- Text input for IMPORTANCE_LEVEL-->
            <div class="form-group">
              <label class="col-md-4 control-label" for="importance_level">Importance Level</label>
              <div class="col-md-4">
              <input id="importanceLevelHash" name="importance_level" type="text" placeholder="enter a number from 1 - 10" class="form-control input-md">
-
              </div>
            </div>
-
-           <!-- Textarea -->
            <div class="form-group">
              <label class="col-md-4 control-label" for="category">Category</label>
              <div class="col-md-4">
-               <div class="col-md-8 col-md-offset-2">
-               <div class="btn-group">
-                 <textarea class="form-control" id="categoryHash" name="category">enter a category</textarea>
-                 <button id="categoryHashBtn" name="category" type="button" class="form-control btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Choose a Category <span class="caret"></span>
-                 </button>
-                 <ul class="dropdown-menu">
-                   <li id="bedroomId">Bedroom</li>
-                   <li id="kitchenId">Kitchen</li>
-                   <li id="livingRoomId">Living Room</li>
-                   <li id="miscId">Miscellaneous</li>
-                 </ul>
-               </div>
-               </div>
+              <textarea class="form-control" id="categoryHash" name="category">enter a category</textarea>
              </div>
            </div>
-
-
-           <!-- Button -->
            <div class="form-group">
              <label class="col-md-4 control-label" for="singlebutton">Save Item</label>
              <div class="col-md-4">
@@ -98,86 +61,51 @@
      </div>
      </div>
    </section>
-   <!--END FORM-->
-
-   <!-- Single button -->
-   <div class="col-md-8 col-md-offset-2">
-   <div class="btn-group">
-     <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       List By Category <span class="caret"></span>
-     </button>
-     <ul class="dropdown-menu">
-       <li><a href="#">Bedroom</a></li>
-       <li><a href="#">Kitchen</a></li>
-       <li><a href="#">Living Room</a></li>
-       <li><a href="#">Miscellaneous</a></li>
-     </ul>
-   </div>
-   </div>
-   <!--BEGIN SECTION-1-->
    <section class="container">
      <div class="row">
        <div class="col-md-10 col-md-offset-1">
          <h2>List Of Items</h2>
        </div>
      </div>
-      <!--BEGIN SCRIPT/HANDLEBARS-->
       <div id='items'>
         <script id='item-template' type='text/x-handlebars-template'>
           <div class="row item" data-item-id="{{_id}}">
-
-
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-defualt">
                 <div class="panel-body">
-                <!--begin internal row-->
                   <div class="col-md-10 col-md-offset-1">
                     <ul class="list-group">
                       <li class="list-group-item">
                         <h4 class='inline-header'>Item Description:</h4>
                         <span class='item-description'>{{description}}</span>
                       </li>
-
                       <li class="list-group-item">
                         <h4 class='inline-header'>Item Condition:</h4>
                         <span class='item-condition'>{{condition}}</span>
                       </li>
-
                       <li class="list-group-item">
                         <h4 class='inline-header'>Item's Importance:</h4>
                         <span class='item-importance'>{{importance_level}}</span>
                       </li>
-
                       <li class="list-group-item">
                         <h4 class='inline-header'>Item category:</h4>
                         <span class='item-category'>{{category.category}}</span>
                       </li>
                     </ul>
                   </div>
-                <!--end internal row-->
                  <div class='panel-footer'>
                    <div class='panel-footer'>
                      <button class='btn btn-primary update-item'>Update Item</button>
                      <button class='btn btn-danger delete-item'>Delete Item</button>
                    </div>
                  </div>
-
-
-
                 </div>
               </div>
             </div>
           </div>
         </script>
       </div>
-      <!--END SCRIPT/HANDLEBARS-->
    </section>
-   <!--END SECTION-1-->
-
-
-
-
-   <!--BEGIN MODAL-FORM-->
    <div class="modal fade" tabindex="-1" role="dialog" id="itemModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -186,38 +114,26 @@
             <h4 class="modal-title">Edit Item</h4>
           </div>
           <div class="modal-body">
-
           <form class="formModal form-horizontal">
            <fieldset>
-
-           <!-- Text input for DESCRIPTION-->
            <div class="form-group">
              <label class="col-md-4 control-label" for="description">Description</label>
              <div class="col-md-4">
              <input id="description" name="description" type="text" placeholder="i.e. My Lucky Red Hat" class="form-control input-md" required="">
-
              </div>
            </div>
-
-           <!-- Text input for CONDITION-->
            <div class="form-group">
              <label class="col-md-4 control-label" for="condition">Condition</label>
              <div class="col-md-4">
              <input id="condition" name="condition" type="text" placeholder="i.e. used" class="form-control input-md">
-
              </div>
            </div>
-
-           <!-- Text input for IMPORTANCE_LEVEL-->
            <div class="form-group">
              <label class="col-md-4 control-label" for="importance_level">Importance Level</label>
              <div class="col-md-4">
              <input id="importance_level" name="importance_level" type="text" placeholder="enter a number from 1 - 10" class="form-control input-md">
-
              </div>
            </div>
-
-           <!-- Textarea -->
            <div class="form-group">
              <label class="col-md-4 control-label" for="category">Category</label>
              <div class="col-md-4">
@@ -234,9 +150,5 @@
        </div>
       </div>
      </div>
-
-
-
-
  </body>
 </html>
