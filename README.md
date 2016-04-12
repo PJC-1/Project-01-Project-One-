@@ -1,6 +1,6 @@
 # Project 01 - General Information:
 
-* Name: Categorize It!
+Name: Categorize It!
 * Github: https://github.com/PJC-1/Project-01-Project-One-
 * Heroku: https://shrouded-caverns-23537.herokuapp.com/
 
