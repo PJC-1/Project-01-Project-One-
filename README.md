@@ -13,13 +13,13 @@ Sprint 3: The user will be able to search for items by category (this is feature
 
 
 ## Technologies Used
-
-jQuery
-bootstrap
-mongodb
-mongoose
-Express API
-Heroku
+Markup: * Bullet list
+        jQuery
+        bootstrap
+        mongodb
+        mongoose
+        Express API
+        Heroku
 
 ## Contributing
 
