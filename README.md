@@ -25,6 +25,7 @@
 ## Existing Features
 
 Presents a pleasant UI for users to enter new items.
+Users are able to delete items from the data-base.
 Uses a modal for the update-features for a seamless UI while editing items in the data-base.
 
 
