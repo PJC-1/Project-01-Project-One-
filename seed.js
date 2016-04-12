@@ -25,7 +25,7 @@ itemList.push({
             importance_level: 1,
             category: 'Miscellaneous'
             });
-            
+
 
 var categoryList = [];
 categoryList.push({
@@ -44,17 +44,12 @@ categoryList.push({
 
 
 db.Category.remove({}, function(err, categories) {
-  console.log('removed all categories');
   db.Category.create(categoryList, function(err, categories){
     if (err) {
       console.log(err);
       return;
     }
-    console.log('recreated all categories');
-    console.log('created', categoryList.length,'categories');
-
     db.Item.remove({}, function(err, items){
-      console.log('removed all items');
       itemList.forEach(function (itemData) {
         var anItem = new db.Item({
           description: itemData.description,
@@ -62,7 +57,6 @@ db.Category.remove({}, function(err, categories) {
           importance_level: itemData.importance_level
         });
         db.Category.findOne({category: itemData.category}, function (err, foundCategory) {
-          console.log('found category' + foundCategory.category + ' for item' + anItem.description);
           if (err) {
             console.log(err);
             return;
@@ -72,22 +66,9 @@ db.Category.remove({}, function(err, categories) {
             if (err) {
               return console.log(err);
             }
-            console.log('saved ' + savedItem.description + ' , category: ' + savedItem.category);
           });
         });
       });
     });
   });
 });
-
-
-
-//THIS BELOW IS FOR DISPLAYING THE SEED DATA WITHOUT NO REFERENCE
-// db.Item.remove({}, function(err, items){
-//   db.Item.create(itemList, function(err, items){
-//     if (err) { return console.log('ERROR', err); }
-//     console.log("all items:", items);
-//     console.log("created", items.length, "items");
-//     process.exit();
-//   });
-// });
