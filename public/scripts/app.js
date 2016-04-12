@@ -88,8 +88,8 @@ function saveModalSuccess(e) {
   var $importance_level = $modal.find('#importance_level');
   var $category = $modal.find('#category');
 
-  // var dataCategory = {category: $category.val()};
-  var dataCategory = $category.val();
+  var dataCategory = {category: $category.val()};
+  // var dataCategory = $category.val();
   var dataToPost = {
     description: $description.val(),
     condition: $condition.val(),
