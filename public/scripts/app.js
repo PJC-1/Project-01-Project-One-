@@ -1,32 +1,20 @@
 $(document).ready(function() {
-  console.log("app.js loaded!");
 
-  $('#bedroomId').on('click', function() {
-    console.log("your clicking the bedroom button");
-
-  });
-
-  //DISPLAY ITEMS
   $.get('api/items').success(function (items){
     items.forEach(function(item) {
       renderItem(item);
     });
   });
-  //END DISPLAY ITEMS
 
-
-  //SUBMIT NEW ITEM
   $('#item-form form').on('submit', function(e) {
     e.preventDefault();
     var formData = $(this).serialize();
-    console.log('formData', formData);
     $.post('/api/items', formData, function(item) {
-      console.log('item after POST', item);
       renderItem(item);
     });
     $(this).trigger("reset");
   });
-  //END OF SUBMIT NEW ITEM
+
 
   //EVENT CLICK UPDATE-BUTTON
   $('#items').on('click', '.update-item', function(e) {
