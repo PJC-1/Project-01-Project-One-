@@ -1,4 +1,4 @@
-# Project 01, General Information:
+# Project 01 - General Information:
 
 * Name: Categorize It!
 * Github: https://github.com/PJC-1/Project-01-Project-One-
