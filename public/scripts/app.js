@@ -68,9 +68,8 @@ function updateError(){
   console.log("error");
 }
 
-function deleteItemClick(e) {
+function deleteItemClick() {
   var itemId = $(this).parents('.item').data('item-id');
-  console.log('delete item: ', itemId);
   $.ajax({
     url: '/api/items/' + itemId,
     method: 'DELETE',
@@ -80,12 +79,10 @@ function deleteItemClick(e) {
 
 function deleteSuccess(data) {
   var deletedItemId = data._id;
-  console.log('removing item from the page: ', deletedItemId);
   $('div[data-item-id=' + deletedItemId + ']').remove();
 }
 
 function renderItem(item) {
-  console.log('rendering item', item);
   var itemHtml = $('#item-template').html();
   var itemsTemplate = Handlebars.compile(itemHtml);
   var html = itemsTemplate(item);
