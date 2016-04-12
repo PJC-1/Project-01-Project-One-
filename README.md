@@ -31,5 +31,5 @@
 
 ## Planned Features
 
-Allow users to search items by category.
-Allow users to upload pictures of the items.
+* Allow users to search items by category.
+* Allow users to upload pictures of the items.
