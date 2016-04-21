@@ -41,16 +41,33 @@ function create(req, res) {
   });
 }
 
-function update(req, res) {
-  db.Item.findById(req.params.itemId)
-    .populate('category')
-    .exec(function(err, object){
-      object.description = req.body.description;
-      object.condition = req.body.condition;
-      object.importance_level = req.body.importance_level;
-      object.save(function(err, model) {
-        res.json(model);
+function update(req,res) {
+  var itemId = req.params.itemId;
+  var catAtt = new db.Category( {category:req.body.category});
+  console.log("logging req.body: ", req.body);
+  console.log("log of catAtt: ", catAtt);
+  catAtt.save(function (err, savedCat) {
+    if (err) {
+      res.status(500).json({ error: err.message});
+    } else {
+      db.Item.findById(req.params.itemId, function(err, itemFound) {
+        if(err) { console.log('error with findbyId'); }
+          console.log("this is loggin inside update, ", itemFound);
+          itemFound.description = req.body.description;
+          itemFound.condition = req.body.condition;
+          itemFound.importance_level = req.body.importance_level;
+          console.log("this is after findById, ", itemFound);
+          itemFound.category = catAtt;
+          itemFound.save(function(err, saved) {
+            if(err) {
+              console.log('saving item fail');
+            } else {
+              console.log("this is findByID, ", saved);
+              res.status(201).json(saved);
+            }
+          });
       });
+    }
   });
 }
 
